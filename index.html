@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - 1</title>
+
+    <script type="module">
+        import { Router } from '/src/index.js';
+
+        const router_root = document.getElementById('router-root');
+
+        const router = new Router([
+            { 'path': '/', 'content': '/pages/MainPage.html' },
+            { 'path': '/second-page', 'content': '/pages/SecondPage.html' }
+        ], router_root);
+
+        window.router = router;
+        window.onpopstate = router.loadContent();
+    </script>
+</head>
+<body>
+    <a href="/" onclick="router.navigate()">Strona Główna</a> <br>
+    <a href="/second-page" onclick="router.navigate()">Druga Strona</a>
+
+    <div id="router-root"></div>
+</body>
+</html>

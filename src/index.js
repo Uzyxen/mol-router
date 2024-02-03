@@ -4,15 +4,25 @@ export class Router {
         this.root_element = root_element;
     }
 
-    async loadContent(path) {
+    async loadContent() {
         try { 
-            const response = await fetch(path);
-            const htmlContent = await response.text();
-            
-            this.root_element.innerHTML = htmlContent;
+            const route = this.getRoute();
 
+            const response = await fetch(route.content);
+            const htmlContent = await response.text();
+        
+            this.root_element.innerHTML = htmlContent;
         } catch (error) {
             console.error('Error: ', error);
+        }
+    }
+
+    getRoute() {
+        const path = window.location.pathname;
+        const route = this.routes.find(route => route.path === path);
+
+        if(route) {
+            return route;
         }
     }
 }

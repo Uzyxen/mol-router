@@ -4,6 +4,14 @@ export class Router {
         this.root_element = root_element;
     }
 
+    navigate(event) {
+        event = event || window.event;
+        event.preventDefault();
+        window.history.pushState({}, '', event.target.href);
+
+        this.loadContent();
+    }
+
     async loadContent() {
         try { 
             const route = this.getRoute();

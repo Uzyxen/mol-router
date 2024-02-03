@@ -15,9 +15,7 @@ export class Router {
     async loadContent() {
         try { 
             const route = this.getRoute();
-
-            const response = await fetch(route.content);
-            const htmlContent = await response.text();
+            const htmlContent = await fetch(route.content).then((response) => response.text());
         
             this.root_element.innerHTML = htmlContent;
         } catch (error) {

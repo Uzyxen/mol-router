@@ -16,7 +16,8 @@
         ], router_root);
 
         window.router = router;
-        window.onpopstate = router.loadContent();
+        window.onpopstate = () => router.loadContent();
+        router.loadContent();
     </script>
 </head>
 <body>

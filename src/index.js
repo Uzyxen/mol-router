@@ -24,20 +24,11 @@ export class Router {
     }
 
     getRoute() {
-        const path = this.removeHash();
-
-        //console.log(path);
+        const path = window.location.pathname;
         const route = this.routes.find(route => route.path === path);
 
         if(route) {
             return route;
         }
-    }
-
-    removeHash() {
-        const hash = window.location.hash;
-        const href = hash.slice(1);
-
-        return href;
     }
 }

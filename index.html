@@ -12,7 +12,7 @@
 
         const router = new Router([
             { 'path': '/', 'content': '/pages/MainPage.html' },
-            { 'path': '/second-page', 'content': '/pages/SecondPage.html' }
+            { 'path': '/page2', 'content': '/pages/SecondPage.html' }
         ], router_root);
 
         window.router = router;
@@ -22,7 +22,7 @@
 </head>
 <body>
     <a href="/" onclick="router.navigate()">Strona Główna</a> <br>
-    <a href="/second-page" onclick="router.navigate()">Druga Strona</a>
+    <a href="/page2" onclick="router.navigate()">Druga Strona</a>
 
     <div id="router-root"></div>
 </body>
